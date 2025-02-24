@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<%- include('../includes/head') %>
+
+<style>
+    html, body {
+        height: 100%;
+        margin: 0;
+    }
+    .wrapper {
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .content-wrapper {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+    .background-image {
+        background-image: url('https://i.ibb.co/2YpLhcH3/link-defender-logo.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    .jumbotron {
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 2rem;
+        border-radius: 10px;
+        text-align: center;
+    }
+    .feature-box {
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 1rem;
+        border-radius: 10px;
+        margin-bottom: 1rem;
+    }
+    .feature-box h3 {
+        color: #f39c12;
+    }
+</style>
+
+<body class="hold-transition skin-blue sidebar-mini">
+
+    <div class="wrapper">
+
+        <!-- The header is the topbar -->
+        <%- include('../includes/header') %>
+
+        <!-- The sidebar includes the menu -->
+        <%- include('../includes/sidebar') %>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <h1>Dashboard Home</h1>
+                <ol class="breadcrumb">
+                    <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+                    <li class="active">Dashboard</li>
+                </ol>
+            </section>
+
+            <!-- Main content -->
+            <section class="content background-image">
+                <!-- Welcome Banner -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="jumbotron">
+                            <h1>Welcome to Your Dashboard</h1>
+                            <p>Manage your server settings, view statistics, configure moderation, and more.</p>
+                            <p><a class="btn btn-primary btn-lg" href="/selector" role="button">Get Started</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature Highlights -->
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="feature-box">
+                            <h3>Server Management</h3>
+                            <p>Manage your server settings, roles, and permissions with ease.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-box">
+                            <h3>Statistics</h3>
+                            <p>View detailed statistics about your server's activity and performance.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="feature-box">
+                            <h3>Moderation</h3>
+                            <p>Configure moderation settings to keep your server safe and secure.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- /.content -->
+
+        </div>
+        <!-- /.content-wrapper -->
+
+        <!-- Footer includes credits and version -->
+        <%- include('../includes/footer') %>
+
+    </div>
+    <!-- ./wrapper -->
+</body>
+
+</html>

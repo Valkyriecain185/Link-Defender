@@ -52,13 +52,17 @@ module.exports.launch = async (client) => {
     .use(async function (req, res, next) {
       req.user = req.session.user;
       req.client = client;
-      if (req.user && req.url !== "/") req.userInfos = await utils.fetchUser(req.user, req.client);
+      if (req.user && req.url !== "/") {
+        req.userInfos = await utils.fetchUser(req.user, req.client);
+      } else {
+        req.userInfos = req.user; // Ensure userInfos is set even if the user is not fetched
+      }
       next();
     })
     .use("/api", discordAPIRouter)
     .use("/logout", logoutRouter)
     .use("/manage", guildManagerRouter)
-    .use("/", mainRouter)
+    .use("/", mainRouter) // Use the main router for the root URL
     .use(CheckAuth, function (req, res) {
       res.status(404).render("404", {
         user: req.userInfos,
