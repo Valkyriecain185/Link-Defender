@@ -2,7 +2,8 @@
   <!-- Logo -->
   <a href="/" class="logo">
     <!-- mini logo for sidebar mini 50x50 pixels -->
-    <span class="logo-mini"><b>DJs</b></span>
+    <span class="logo-mini"><b>LDR
+    </b></span>
     <!-- logo for regular state and mobile devices -->
     <span class="logo-lg"><b>Link Defender</b></span>
   </a>
@@ -16,6 +17,28 @@
     <!-- Navbar Right Menu -->
     <div class="navbar-custom-menu">
       <ul class="nav navbar-nav">
+        <!-- Notifications: style can be found in dropdown.less -->
+        <li class="dropdown notifications-menu">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-bell-o"></i>
+            <span class="label label-warning">10</span>
+          </a>
+          <ul class="dropdown-menu">
+            <li class="header">You have 0 notifications</li>
+            <li>
+              <!-- inner menu: contains the actual data -->
+              <ul class="menu">
+                <li>
+                  <a href="#">
+                    <i class="fa fa-users text-aqua"></i> 10 new members joined today
+                  </a>
+                </li>
+                <!-- Add more notifications here -->
+              </ul>
+            </li>
+            <li class="footer"><a href="#">View all</a></li>
+          </ul>
+        </li>
         <!-- User Account: style can be found in dropdown.less -->
         <li class="dropdown user user-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -23,12 +46,63 @@
             <span class="hidden-xs"><%= user.tag %></span>
           </a>
           <ul class="dropdown-menu">
+            <!-- User image -->
+            <li class="user-header">
+              <img src="<%= user.displayAvatar %>" class="img-circle" alt="User Image" />
+              <p>
+                <% if (user.id === '1123204041938325515') { %>
+                  <%= user.username %> - Software Developer
+                <% } else { %>
+                  <%= user.username %>
+                <% } %>
+                <% 
+                  const joinedAt = new Date(user.joinedAt);
+                  const formattedJoinDate = isNaN(joinedAt) ? 'Unknown' : joinedAt.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+                %>
+                <small>Member since <%= formattedJoinDate %></small>
+              </p>
+            </li>
+            <!-- Menu Body -->
+            <li class="user-body">
+              <div class="row">
+                <div class="col-xs-4 text-center">
+                  <a href="#">Followers -- Coming soon</a>
+                </div>
+                <div class="col-xs-4 text-center">
+                  <a href="#">Friends -- Coming soon</a>
+                </div>
+              </div>
+              <!-- /.row -->
+            </li>
             <!-- Menu Footer-->
-            <li class="user-footer" style="min-width: auto !important">
-              <div>
-                <a href="/logout" class="btn btn-default btn-flat btn-block">Sign out</a>
+            <li class="user-footer">
+              <div class="pull-left">
+                <a href="#" class="btn btn-default btn-flat">Profile -- Coming Soon</a>
+              </div>
+              <div class="pull-right">
+                <a href="/logout" class="btn btn-default btn-flat">Sign out</a>
               </div>
             </li>
+          </ul>
+        </li>
+        <!-- Settings Menu -->
+        <li class="dropdown settings-menu">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-cogs"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li class="header">Settings</li>
+            <li>
+              <a href="#">
+                <i class="fa fa-user"></i> Account Settings -- Coming Soon
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-lock"></i> Privacy Settings -- Coming Soon
+              </a>
+            </li>
+            <!-- Add more settings here -->
           </ul>
         </li>
       </ul>

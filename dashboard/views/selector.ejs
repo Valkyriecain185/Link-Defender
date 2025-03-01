@@ -41,15 +41,17 @@
                       width="100"
                       height="100"
                       class="img-fluid"
+                      alt="Server Icon"
                     />
+                    <p class="server-description"><%= guild.description || 'No description available' %></p>
                   </div>
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer">
                   <% if(guild.settingsUrl.includes('discordapp.com')) { %>
-                  <a href="<%= guild.settingsUrl %>"><button class="btn btn-block btn-primary">Invite</button></a>
+                  <a href="<%= guild.settingsUrl %>"><button class="btn btn-block btn-primary" data-toggle="tooltip" title="Invite this server">Invite</button></a>
                   <% } else { %>
-                  <a href="<%= guild.settingsUrl %>"><button class="btn btn-block btn-success">Manage</button></a>
+                  <a href="<%= guild.settingsUrl %>"><button class="btn btn-block btn-success" data-toggle="tooltip" title="Manage this server">Manage</button></a>
                   <% } %>
                 </div>
                 <!-- /.box-footer -->
@@ -86,5 +88,11 @@
       <%- include('includes/footer') %>
     </div>
     <!-- ./wrapper -->
+
+    <script>
+      $(document).ready(function() {
+        $('[data-toggle="tooltip"]').tooltip();
+      });
+    </script>
   </body>
 </html>

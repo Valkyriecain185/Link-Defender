@@ -40,26 +40,26 @@
                                         <div class="form-group">
                                             <label>Content</label>
                                             <% if(guild.welcome.embed.description || guild.welcome.content) {%>
-                                                <textarea rows="3" name="content" class="form-control"><%- guild.welcome.content?.replaceAll(/\\n/g, '&#10;') %></textarea>
+                                                <textarea rows="3" name="content" class="form-control" placeholder="Enter welcome message"><%- guild.welcome.content?.replaceAll(/\\n/g, '&#10;') %></textarea>
                                             <% } else { %>
-                                                <textarea rows="3" name="content" class="form-control" placeholder="<%= 'Welcome to the server {member:name} 🎉' %>"></textarea>
+                                                <textarea rows="3" name="content" class="form-control" placeholder="Welcome to the server {member:name} 🎉"></textarea>
                                             <% } %>
                                         </div>
                                         <div class="form-group">
                                             <label>Description</label>
-                                            <textarea rows="3" name="description" class="form-control"><%- guild.welcome.embed.description?.replaceAll(/\\n/g, '&#10;') %></textarea>
+                                            <textarea rows="3" name="description" class="form-control" placeholder="Enter description"><%- guild.welcome.embed.description?.replaceAll(/\\n/g, '&#10;') %></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label>Footer</label>
-                                            <input type="text" name="footer" class="form-control" value="<%= guild.welcome.embed.footer %>">
+                                            <input type="text" name="footer" class="form-control" placeholder="Enter footer text" value="<%= guild.welcome.embed.footer %>">
                                         </div>
                                         <div class="form-group">
                                             <label>Hex Color</label>
-                                            <input type="text" name="hexcolor" class="form-control" value="<%= guild.welcome.embed.color %>">
+                                            <input type="text" name="hexcolor" class="form-control" placeholder="#FFFFFF" value="<%= guild.welcome.embed.color %>">
                                         </div>
                                         <div class="form-group">
                                             <label>Image URL</label>
-                                            <input type="text" name="image" class="form-control" value="<%= guild.welcome.embed.image %>">
+                                            <input type="text" name="image" class="form-control" placeholder="Enter image URL" value="<%= guild.welcome.embed.image %>">
                                         </div>
                                         <div class="form-group">
                                             <label>Channel</label>
@@ -111,26 +111,26 @@
                                         <div class="form-group">
                                             <label>Content</label>
                                             <% if(guild.farewell.embed.description || guild.farewell.content) {%>
-                                                <textarea rows="3" name="content" class="form-control"><%- guild.farewell.content?.replaceAll(/\\n/g, '&#10;') %></textarea>
+                                                <textarea rows="3" name="content" class="form-control" placeholder="Enter farewell message"><%- guild.farewell.content?.replaceAll(/\\n/g, '&#10;') %></textarea>
                                             <% } else { %>
-                                                <textarea rows="3" name="content" class="form-control" placeholder="<%= '{member:tag} has left the server 👋' %>"></textarea>
+                                                <textarea rows="3" name="content" class="form-control" placeholder="{member:tag} has left the server 👋"></textarea>
                                             <% } %>
                                         </div>
                                         <div class="form-group">
                                             <label>Description</label>
-                                            <textarea rows="3" name="description" class="form-control"><%- guild.farewell.embed.description?.replaceAll(/\\n/g, '&#10;') %></textarea>
+                                            <textarea rows="3" name="description" class="form-control" placeholder="Enter description"><%- guild.farewell.embed.description?.replaceAll(/\\n/g, '&#10;') %></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label>Footer</label>
-                                            <input type="text" name="footer" class="form-control" value="<%= guild.farewell.embed.footer %>">
+                                            <input type="text" name="footer" class="form-control" placeholder="Enter footer text" value="<%= guild.farewell.embed.footer %>">
                                         </div>
                                         <div class="form-group">
                                             <label>Hex Color</label>
-                                            <input type="text" name="hexcolor" class="form-control" value="<%= guild.farewell.embed.color %>">
+                                            <input type="text" name="hexcolor" class="form-control" placeholder="#FFFFFF" value="<%= guild.farewell.embed.color %>">
                                         </div>
                                         <div class="form-group">
                                             <label>Image URL</label>
-                                            <input type="text" name="image" class="form-control" value="<%= guild.farewell.embed.image %>">
+                                            <input type="text" name="image" class="form-control" placeholder="Enter image URL" value="<%= guild.farewell.embed.image %>">
                                         </div>
                                         <div class="form-group">
                                             <label>Channel</label>
@@ -171,7 +171,7 @@
                             </div>
 
                         </div>
-                    <div>
+                    </div>
 				</section>
 				
 			</div>
@@ -180,5 +180,11 @@
             <%- include('../includes/footer') %>
 		</div>
 		<!-- ./wrapper -->
+
+		<script>
+			$(document).ready(function() {
+				$('[data-toggle="tooltip"]').tooltip();
+			});
+		</script>
 	</body>
 </html>

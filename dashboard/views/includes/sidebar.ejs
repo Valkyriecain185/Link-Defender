@@ -1,5 +1,5 @@
 <!-- Left side column. contains the logo and sidebar -->
-<aside class="main-sidebar custom-sidebar">
+<aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
         <!-- Sidebar user panel -->
@@ -9,6 +9,7 @@
             </div>
             <div class="pull-left info">
                 <p><%= user.username %></p>
+                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
         <!-- search form -->
@@ -27,15 +28,31 @@
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">SERVERS MANAGEMENT</li>
             <li class="treeview menu-open">
-                <li><a href="/selector"><i class="fa fa-home"></i> <span>Selector</span></a></li>
+                <a href="#">
+                    <i class="fa fa-home"></i> <span>Selector</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/selector"><i class="fa fa-circle-o"></i> Selector</a></li>
+                </ul>
             </li>
         </ul>
         <% if (locals.guild){ %>
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">CONFIGURATION</li>
             <li class="treeview menu-open">
-                <li><a href="/manage/<%= guild.id %>/basic"><i class="fa fa-gear"></i> <span>Basic</span></a></li>
-                <li><a href="/manage/<%= guild.id %>/greeting"><i class="fa fa-bullhorn"></i> <span>Greeting</span></a></li>
+                <a href="#">
+                    <i class="fa fa-gear"></i> <span>Manage</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/manage/<%= guild.id %>/basic"><i class="fa fa-circle-o"></i> Basic</a></li>
+                    <li><a href="/manage/<%= guild.id %>/greeting"><i class="fa fa-circle-o"></i> Greeting</a></li>
+                </ul>
             </li>
         </ul>
         <% } %>
@@ -50,70 +67,8 @@
         $(`.sidebar-menu > li > a[href="${pathname}"]`).parent().addClass("active");
         $(`.sidebar-menu > li > ul > li > a[href="${window.location.pathname}"]`).parent().addClass("active");
         $(`.sidebar-menu > li > a[href="/${window.location.pathname.split("/")[1]}/"]`).parent().addClass("active");
+
+        // Enable treeview menu
+        $('.treeview').tree();
     });
 </script>
-
-<style>
-    .custom-sidebar {
-        background-color: #2c3e50;
-        color: #ecf0f1;
-    }
-
-    .custom-sidebar .user-panel {
-        background-color: #34495e;
-        padding: 10px;
-        margin-bottom: 10px;
-    }
-
-    .custom-sidebar .user-panel .image img {
-        border: 2px solid #ecf0f1;
-    }
-
-    .custom-sidebar .user-panel .info p {
-        color: #ecf0f1;
-        margin: 0;
-    }
-
-    .custom-sidebar .sidebar-form {
-        margin-bottom: 10px;
-    }
-
-    .custom-sidebar .sidebar-form .form-control {
-        background-color: #34495e;
-        border: none;
-        color: #ecf0f1;
-    }
-
-    .custom-sidebar .sidebar-form .btn-flat {
-        background-color: #34495e;
-        border: none;
-        color: #ecf0f1;
-    }
-
-    .custom-sidebar .sidebar-menu > li.header {
-        color: #bdc3c7;
-        background-color: #34495e;
-        padding: 10px;
-        font-size: 14px;
-    }
-
-    .custom-sidebar .sidebar-menu > li > a {
-        color: #ecf0f1;
-    }
-
-    .custom-sidebar .sidebar-menu > li > a:hover {
-        background-color: #2980b9;
-    }
-
-    .custom-sidebar .sidebar-menu > li.active > a {
-        background-color: #2980b9;
-    }
-
-    .custom-sidebar .sidebar-menu .treeview-menu > li > a {
-        color: #bdc3c7;
-    }
-
-    .custom-sidebar .sidebar-menu .treeview-menu > li > a:hover {
-        background-color: #2980b9;
-    }
-</style>
