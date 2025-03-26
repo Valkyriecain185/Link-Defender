@@ -76,7 +76,7 @@ module.exports = {
   },
 
   IMAGE: {
-    ENABLED: true,
+    ENABLED: false,
     BASE_API: "https://strangeapi.hostz.me/api",
   },
 
@@ -128,6 +128,12 @@ module.exports = {
   },
 
   TICKET: {
+    ENABLED: true,
+    CREATE_EMBED: "#068ADD",
+    CLOSE_EMBED: "#068ADD",
+  },
+
+  APPLICATION: {
     ENABLED: true,
     CREATE_EMBED: "#068ADD",
     CLOSE_EMBED: "#068ADD",

@@ -91,6 +91,12 @@ module.exports = {
     image: "https://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/512/ticket-icon.png",
     emoji: "🎫",
   },
+  APPLICATION: {
+    name: "Applications",
+    enabled: config.APPLICATION.ENABLED,
+    image: "https://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/512/ticket-icon.png",
+    emoji: "🎫",
+  },
   UTILITY: {
     name: "Utility",
     image: "https://icons.iconarchive.com/icons/blackvariant/button-ui-system-folders-alt/128/Utilities-icon.png",
